@@ -1,8 +1,5 @@
 import tkinter as tk
 from cryptography.fernet import Fernet
-import sys
-
-sys.path.append(".")
 from Master import master
 
 

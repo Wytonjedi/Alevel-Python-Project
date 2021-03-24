@@ -1,7 +1,4 @@
 import tkinter as tk
-import sys
-
-sys.path.append(".")
 from Master import master
 
 

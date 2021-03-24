@@ -1,8 +1,5 @@
 import tkinter as tk
 import random
-import sys
-
-sys.path.append(".")
 from Master import master
 
 

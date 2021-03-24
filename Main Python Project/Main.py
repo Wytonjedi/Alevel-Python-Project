@@ -1,8 +1,4 @@
-import random
-import smtplib
-import ssl
 import tkinter as tk
-import sys
 
 # importing encryption classes from other files
 
