@@ -3,7 +3,6 @@ import random
 from Master import master
 
 
-
 class caesar(master):
     def __init__(self):
         self.type = "caesar"
@@ -13,12 +12,14 @@ class caesar(master):
         super().__init__()
 
     def menu_extra(self):
+        self.menu.title("Caesar")
         # filling of frame 2
         tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height).pack(
             side=tk.LEFT)
         self.key = tk.StringVar()
         self.key.set(self.numbers[random.randint(0, len(self.numbers))])
         self.shift_drop = tk.OptionMenu(self.frame2, self.key, *self.numbers)
+        self.shift_drop.configure(width=10)
         self.shift_drop.pack(side=tk.LEFT)
         tk.Button(self.frame2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height).pack(
             side=tk.RIGHT)
@@ -56,3 +57,4 @@ class caesar(master):
                 text = text + self.shift(encoded[j], i)
             print(text)
 
+caesar()

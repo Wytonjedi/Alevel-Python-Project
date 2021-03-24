@@ -1,11 +1,6 @@
 import tkinter as tk
+import os
 
-# importing encryption classes from other files
-
-from Caesar import caesar
-from Vigenere import vigenere
-from Symmetrical_keys import key
-from Rotor_encryption import rotor
 
 
 
@@ -87,13 +82,13 @@ this is a watered down version of the enigma machine used by the NAZIs""")
 
     def enter(self):
         if self.option == "c":
-            caesar()
+            os.system("python Caesar.py")
         elif self.option == "v":
-            vigenere()
+            os.system("python Vigenere.py")
         elif self.option == "k":
-            key()
+            os.system("python Symmetrical_keys.py")
         elif self.option == "r":
-            rotor()
+            os.system("python Rotor_encryption.py")
         else:
             print("Not option selected")
 

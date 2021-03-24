@@ -19,14 +19,14 @@ class master:
         self.master_email = "mypythonprojects101@gmail.com"
         self.master_password = "htcgfnmoxctenucn"
 
-        # creation of window
-        self.window = tk.Tk()
+        # creation of menu
+        self.menu = tk.Tk()
 
         # creation of frames
-        self.frame1 = tk.Frame(self.window)
-        self.frame2 = tk.Frame(self.window)
-        self.frame3 = tk.Frame(self.window)
-        self.frame4 = tk.Frame(self.window)
+        self.frame1 = tk.Frame(self.menu)
+        self.frame2 = tk.Frame(self.menu)
+        self.frame3 = tk.Frame(self.menu)
+        self.frame4 = tk.Frame(self.menu)
 
         # filling of frame 1
         self.text_menu = tk.Text(self.frame1, width=self.t_width, height=self.t_height)
@@ -39,7 +39,7 @@ class master:
         self.encoded_menu.pack()
 
         # filling of frame 4
-        tk.Button(self.frame4, text="Back", command=self.window.destroy, width=self.b_width, height=self.b_height).pack(
+        tk.Button(self.frame4, text="Back", command=self.menu.destroy, width=self.b_width, height=self.b_height).pack(
             side=tk.LEFT)
         tk.Button(self.frame4, text="Email to friends", command=self.email, width=self.b_width, height=self.b_height).pack(side=tk.LEFT)
         tk.Button(self.frame4, text="Save to file", width=self.b_width, height=self.b_height).pack(side=tk.RIGHT)
@@ -49,7 +49,7 @@ class master:
         self.frame2.pack()
         self.frame3.pack()
         self.frame4.pack(side=tk.BOTTOM)
-        self.window.mainloop()
+        self.menu.mainloop()
 
     def get_text(self):
         text = self.text_menu.get("1.0", tk.END)

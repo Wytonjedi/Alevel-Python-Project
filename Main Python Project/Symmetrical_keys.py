@@ -10,7 +10,7 @@ class key(master):
         super().__init__()
 
     def menu_extra(self):
-        self.window.title("Keys")
+        self.menu.title("Keys")
         # filling of frame 2
         tk.Button(self.frame2, text="Decode", command=self.decrypt).pack(side=tk.LEFT)
         self.key_box = tk.Entry(self.frame2, width=int(self.width - 2 * (self.width / 6)))
@@ -28,4 +28,4 @@ class key(master):
         text = key.decrypt(self.get_text().encode("utf-8"))
         print(text)
 
-
+key()

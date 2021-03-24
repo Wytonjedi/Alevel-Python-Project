@@ -8,6 +8,7 @@ class vigenere(caesar):
         super().__init__()
 
     def menu_extra(self):
+        self.menu.title("Vigenere")
         tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height).pack(
             side=tk.LEFT)
         self.key = tk.Entry(self.frame2)
