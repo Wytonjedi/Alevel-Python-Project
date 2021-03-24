@@ -6,7 +6,7 @@ sys.path.append(".")
 from Master import master
 
 
-class Key(master):
+class key(master):
     def __init__(self):
         # declaration of self variables
         self.key = Fernet.generate_key()
@@ -32,4 +32,3 @@ class Key(master):
         print(text)
 
 
-Key()

@@ -27,4 +27,3 @@ class vigenere(caesar):
                 return j
 
 
-vigenere()

@@ -2,7 +2,16 @@ import random
 import smtplib
 import ssl
 import tkinter as tk
-import os
+import sys
+
+# importing encryption classes from other files
+
+from Caesar import caesar
+from Vigenere import vigenere
+from Symmetrical_keys import key
+from Rotor_encryption import rotor
+
+
 
 class menu:
     def __init__(self):
@@ -82,13 +91,13 @@ this is a watered down version of the enigma machine used by the NAZIs""")
 
     def enter(self):
         if self.option == "c":
-            os.system("python Caesar.py")
+            caesar()
         elif self.option == "v":
-            os.system("python Vigenere.py")
+            vigenere()
         elif self.option == "k":
-            os.system("python Symmetrical_keys.py")
+            key()
         elif self.option == "r":
-            os.system("python Rotor_encryption.py")
+            rotor()
         else:
             print("Not option selected")
 

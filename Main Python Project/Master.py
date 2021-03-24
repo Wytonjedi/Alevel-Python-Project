@@ -70,7 +70,7 @@ class master:
         self.message.insert(tk.END, """
 Method: {} 
 Encoded Text: {}
-Key: {}
+key: {}
 
 Look at this!""".format(self.type, self.encoded_menu.get("1.0", tk.END), self.key.get()))
         self.message.pack()

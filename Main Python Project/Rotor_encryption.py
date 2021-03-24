@@ -48,6 +48,3 @@ class rotor(master):
 
     def decode(self):
         pass
-
-
-rotor()
