@@ -2,7 +2,7 @@ import random
 import smtplib
 import ssl
 import tkinter as tk
-
+import os
 
 class menu:
     def __init__(self):
@@ -82,13 +82,13 @@ this is a watered down version of the enigma machine used by the NAZIs""")
 
     def enter(self):
         if self.option == "c":
-            print("WIP C")
+            os.system("python Caesar.py")
         elif self.option == "v":
-            print("WIP V")
+            os.system("python Vigenere.py")
         elif self.option == "k":
-            print("WIP K")
+            os.system("python Symmetrical_keys.py")
         elif self.option == "r":
-            print("WIP R")
+            os.system("python Rotor_encryption.py")
         else:
             print("Not option selected")
 
