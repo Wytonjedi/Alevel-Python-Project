@@ -2,8 +2,6 @@ import tkinter as tk
 import os
 
 
-
-
 class menu:
     def __init__(self):
         # declaration of self variables
