@@ -95,8 +95,8 @@ Look at this!
 
     def send(self):
         context = ssl.create_default_context()
-        with smtplib.SMTP(self.smtp_server, self.port) as server:
-            server.starttls(context=context)
+        server = smtplib.SMTP(self.smtp_server, self.port)
+        server.starttls(context=context)
         server.login(self.master_email, self.master_password)
         server.sendmail(self.master_email, self.receiver.get(), self.message.get(tk.END))
 
