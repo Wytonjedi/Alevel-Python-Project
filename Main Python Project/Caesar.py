@@ -40,7 +40,6 @@ class caesar(master):
         text = self.get_text()
         count = 0
         encoded = ""
-        run = bool()
         for i in range(len(text) - 1):
             run = False
             for j in range(len(self.letters)):
@@ -48,7 +47,7 @@ class caesar(master):
                     encoded = encoded + self.shift(text[i], self.get_shift(count)).upper()
                     count += 1
                     run = True
-            if not(run):
+            if not run:
                 encoded = encoded + text[i]
         self.encoded_menu.delete("1.0", tk.END)
         self.encoded_menu.insert(tk.END, encoded)
@@ -60,5 +59,6 @@ class caesar(master):
             for j in range(len(encoded)):
                 text = text + self.shift(encoded[j], i)
             print(text)
+
 
 caesar()

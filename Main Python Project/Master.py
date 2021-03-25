@@ -6,7 +6,7 @@ import ssl
 class master:
     def __init__(self):
         # set height and widths
-        # text boxs
+        # text boxes
         self.t_width = 75
         self.t_height = 15
         # Buttons

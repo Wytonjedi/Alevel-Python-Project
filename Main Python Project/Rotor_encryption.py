@@ -26,7 +26,6 @@ class rotor(master):
         self.b_offset.pack()
         tk.Button(self.frame2, text="encode", command=self.encode).pack()
 
-
     def get_offset(self):
         self.offset[0] = self.a_var.get()
         self.offset[1] = self.b_var.get()
@@ -36,5 +35,6 @@ class rotor(master):
 
     def decode(self):
         pass
+
 
 rotor()

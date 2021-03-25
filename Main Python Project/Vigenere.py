@@ -1,6 +1,6 @@
 import tkinter as tk
-import random
 from Caesar import caesar
+
 
 class vigenere(caesar):
     def __init__(self):
@@ -23,5 +23,3 @@ class vigenere(caesar):
         for j in range(0, len(self.letters) - 1):
             if key[i] == self.letters[j]:
                 return j
-
-
