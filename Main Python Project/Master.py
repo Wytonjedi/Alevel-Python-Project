@@ -1,7 +1,7 @@
 import tkinter as tk
 import smtplib
 import ssl
-
+import os
 
 class master:
     def __init__(self):
@@ -17,7 +17,7 @@ class master:
         self.port = 587
         self.smtp_server = "smtp.gmail.com"
         self.master_email = "mypythonprojects101@gmail.com"
-        self.master_password = "htcgfnmoxctenucn"
+        self.master_password = os.environ.get("EMAIL_TOKEN")
 
         # creation of menu
         self.menu = tk.Tk()
