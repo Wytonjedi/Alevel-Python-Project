@@ -59,4 +59,3 @@ class caesar(master):
             for j in range(len(encoded)):
                 text = text + self.shift(encoded[j], i)
             print(text)
-
