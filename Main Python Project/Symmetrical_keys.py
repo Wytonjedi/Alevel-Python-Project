@@ -12,11 +12,12 @@ class key(master):
     def menu_extra(self):
         self.menu.title("Keys")
         # filling of frame 2
-        tk.Button(self.frame2, text="Decode", command=self.decrypt).pack(side=tk.LEFT)
-        self.key_box = tk.Entry(self.frame2, width=int(self.width - 2 * (self.width / 6)))
+        tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height).pack(side=tk.LEFT)
+        tk.Label(self.frame2, text="Key:").pack(side=tk.LEFT)
+        self.key_box = tk.Entry(self.frame2, width=50)
         self.key_box.pack(side=tk.LEFT)
         self.key_box.insert(tk.END, self.key)
-        tk.Button(self.frame2, text="Encode", command=self.encrypt).pack(side=tk.RIGHT)
+        tk.Button(self.frame2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height).pack(side=tk.RIGHT)
 
     def encrypt(self):
         key = Fernet(self.key)

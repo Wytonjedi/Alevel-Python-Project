@@ -29,12 +29,14 @@ class master:
         self.frame4 = tk.Frame(self.menu)
 
         # filling of frame 1
+        tk.Label(self.frame1, text="Plain Text:").pack()
         self.text_menu = tk.Text(self.frame1, width=self.t_width, height=self.t_height)
         self.text_menu.pack()
 
         self.menu_extra()
 
         # filling of frame 3
+        tk.Label(self.frame3, text="Encoded Text:").pack(side=tk.TOP)
         self.encoded_menu = tk.Text(self.frame3, width=self.t_width, height=self.t_height)
         self.encoded_menu.pack()
 
