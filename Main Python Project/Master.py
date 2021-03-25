@@ -20,7 +20,7 @@ class master:
         self.master_email = "mypythonprojects101@gmail.com"
         self.master_password = os.environ.get("EMAIL_TOKEN")
 
-        # creation of menu
+        # creation of window
         self.menu = tk.Tk()
 
         # creation of frames

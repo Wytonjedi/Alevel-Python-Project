@@ -1,6 +1,6 @@
 import tkinter as tk
 import os
-
+from Caesar import caesar
 
 class menu:
     def __init__(self):
@@ -8,10 +8,10 @@ class menu:
 
         self.option = ""
         self.type = ""
-        self.menu = tk.Tk()
-        self.menu.title("Main Menu")
-        self.frame1 = tk.Frame(self.menu)
-        self.frame2 = tk.Frame(self.menu)
+        self.window = tk.Tk()
+        self.window.title("Main Menu")
+        self.frame1 = tk.Frame(self.window)
+        self.frame2 = tk.Frame(self.window)
 
         # Filling frame 1
         tk.Label(self.frame1, text="Pick an \n encryption method", width=15, height=2).pack(side=tk.TOP)
@@ -29,7 +29,7 @@ class menu:
         # putting both frames on screen
         self.frame1.pack(side=tk.LEFT)
         self.frame2.pack(side=tk.RIGHT)
-        self.menu.mainloop()
+        self.window.mainloop()
 
     def choose_caesar(self):
         self.textbox.configure(state="normal")
@@ -82,7 +82,7 @@ this is a watered down version of the enigma machine used by the NAZIs""")
 
     def enter(self):
         if self.option == "c":
-            os.system("python Caesar.py")
+            caesar()
         elif self.option == "v":
             os.system("python Vigenere.py")
         elif self.option == "k":
