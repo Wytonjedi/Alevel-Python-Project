@@ -3,6 +3,7 @@ import smtplib
 import ssl
 import os
 
+
 class master:
     def __init__(self):
         # set height and widths
