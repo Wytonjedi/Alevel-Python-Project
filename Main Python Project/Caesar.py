@@ -60,5 +60,3 @@ class caesar(master):
                 text = text + self.shift(encoded[j], i)
             print(text)
 
-
-caesar()
