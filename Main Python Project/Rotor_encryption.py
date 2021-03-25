@@ -19,12 +19,12 @@ class rotor(master):
         self.plugs = []
 
     def menu_extra(self):
-        tk.Button(self.frame2, text="decode", command=self.decode).pack()
+        tk.Button(self.frame2, text="decode", command=self.decode, bd=self.b_b_width).pack()
         self.a_offset = tk.OptionMenu(self.frame2, self.a_var, *self.alpha)
         self.a_offset.pack()
         self.b_offset = tk.OptionMenu(self.frame2, self.b_var, *self.bravo)
         self.b_offset.pack()
-        tk.Button(self.frame2, text="encode", command=self.encode).pack()
+        tk.Button(self.frame2, text="encode", command=self.encode, bd=self.b_b_width).pack()
 
     def get_offset(self):
         self.offset[0] = self.a_var.get()

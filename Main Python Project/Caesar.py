@@ -14,15 +14,15 @@ class caesar(master):
     def menu_extra(self):
         self.menu.title("Caesar")
         # filling of frame 2
-        tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height).pack(
-            side=tk.LEFT)
+        tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(side=tk.LEFT)
         self.key = tk.StringVar()
         self.key.set(self.numbers[random.randint(0, len(self.numbers))])
         self.shift_drop = tk.OptionMenu(self.frame2, self.key, *self.numbers)
         self.shift_drop.configure(width=10)
         self.shift_drop.pack(side=tk.LEFT)
-        tk.Button(self.frame2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height).pack(
-            side=tk.RIGHT)
+        tk.Button(self.frame2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(side=tk.RIGHT)
 
     def get_shift(self, i):
         shift = self.key.get()

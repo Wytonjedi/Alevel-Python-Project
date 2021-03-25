@@ -13,6 +13,7 @@ class master:
         # Buttons
         self.b_width = 15
         self.b_height = 1
+        self.b_b_width = 4
 
         # email vars
         self.port = 587
@@ -42,12 +43,13 @@ class master:
         self.encoded_menu.pack()
 
         # filling of frame 4
-        tk.Button(self.frame4, text="Back", command=self.menu.destroy, width=self.b_width, height=self.b_height).pack(
+        tk.Button(self.frame4, text="Back", command=self.menu.destroy, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(
             side=tk.LEFT)
         tk.Button(self.frame4, text="Email to friends", command=self.email, width=self.b_width,
-                  height=self.b_height).pack(side=tk.LEFT)
+                  height=self.b_height, bd=self.b_b_width).pack(side=tk.LEFT)
         tk.Button(self.frame4, text="Save to file", command=self.save_to_file, width=self.b_width,
-                  height=self.b_height).pack(side=tk.RIGHT)
+                  height=self.b_height, bd=self.b_b_width).pack(side=tk.RIGHT)
 
         # packing frames
         self.frame1.pack(side=tk.TOP)
@@ -83,10 +85,10 @@ Look at this!
         self.message.pack()
 
         # filling frame 3
-        tk.Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height).pack(
-            side=tk.LEFT)
-        tk.Button(self.frame3, text="send", command=self.send, width=self.b_width, height=self.b_height).pack(
-            side=tk.RIGHT)
+        tk.Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(side=tk.LEFT)
+        tk.Button(self.frame3, text="send", command=self.send, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(side=tk.RIGHT)
 
         # packing frames
         self.frame1.pack(side=tk.TOP)

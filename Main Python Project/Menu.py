@@ -18,16 +18,18 @@ class menu:
 
         # Filling frame 1
         tk.Label(self.frame1, text="Pick an \n encryption method", width=15, height=2).pack(side=tk.TOP)
-        tk.Button(self.frame1, text="caesar", command=self.choose_caesar, width=15, height=1).pack()
-        tk.Button(self.frame1, text="vigenere", command=self.choose_vigenere, width=15, height=1).pack()
-        tk.Button(self.frame1, text="symmetrical keys", command=self.choose_key, width=15, height=1).pack()
-        tk.Button(self.frame1, text="Rotor encryption", command=self.choose_rotor, width=15, height=1).pack()
-        tk.Button(self.frame1, text="back", command=self.back, width=15, height=1).pack()
+        tk.Button(self.frame1, text="caesar", command=self.choose_caesar, width=15, height=1, bd=4).pack()
+        tk.Button(self.frame1, text="vigenere", command=self.choose_vigenere, width=15, height=1, bd=4).pack()
+        tk.Button(self.frame1, text="symmetrical keys", command=self.choose_key, width=15, height=1, bd=4).pack()
+        tk.Button(self.frame1, text="Rotor encryption", command=self.choose_rotor, width=15, height=1, bd=4).pack()
 
         # Filling frame 2
+        tk.Label(self.frame2, text="Description:").pack()
         self.textbox = tk.Text(self.frame2, state="disabled", width=75, height=15)
         self.textbox.pack(side=tk.TOP)
-        tk.Button(self.frame2, text="Enter", command=self.enter, width=15, height=1).pack(side=tk.RIGHT)
+        tk.Button(self.frame2, text="Exit", command=self.window.destroy, width=15, height=1, bd=4, fg="red"
+                  ).pack(side=tk.LEFT)
+        tk.Button(self.frame2, text="Enter", command=self.enter, width=15, height=1, bd=4).pack(side=tk.RIGHT)
 
         # putting both frames on screen
         self.frame1.pack(side=tk.LEFT)
