@@ -7,12 +7,14 @@ class menu:
         # declaration of self variables
 
         self.option = ""
+        self.type = ""
         self.menu = tk.Tk()
         self.menu.title("Main Menu")
         self.frame1 = tk.Frame(self.menu)
         self.frame2 = tk.Frame(self.menu)
 
         # Filling frame 1
+        tk.Label(self.frame1, text="Pick an \n encryption method", width=15, height=2).pack(side=tk.TOP)
         tk.Button(self.frame1, text="caesar", command=self.choose_caesar, width=15, height=1).pack()
         tk.Button(self.frame1, text="vigenere", command=self.choose_vigenere, width=15, height=1).pack()
         tk.Button(self.frame1, text="symmetrical keys", command=self.choose_key, width=15, height=1).pack()

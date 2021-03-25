@@ -62,8 +62,9 @@ class master:
         self.frame3 = tk.Frame(self.menu)
 
         # filling frame 1
+        tk.Label(self.frame1, text="Enter Email:").pack(side=tk.LEFT)
         self.receiver = tk.Entry(self.frame1)
-        self.receiver.pack()
+        self.receiver.pack(side=tk.RIGHT)
 
         # filling frame 2
         self.message = tk.Text(self.frame2)
