@@ -23,6 +23,3 @@ class vigenere(caesar):
         for j in range(0, len(self.letters) - 1):
             if key[i] == self.letters[j]:
                 return j
-
-
-vigenere()

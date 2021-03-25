@@ -21,7 +21,7 @@ class master:
         self.master_password = os.environ.get("EMAIL_TOKEN")
 
         # creation of window
-        self.menu = tk.Tk()
+        self.menu = tk.Toplevel()
 
         # creation of frames
         self.frame1 = tk.Frame(self.menu)

@@ -29,6 +29,3 @@ class key(master):
     def decrypt(self):
         text = self.fernet.decrypt(self.get_text().encode("utf-8"))
         print(text)
-
-
-key()

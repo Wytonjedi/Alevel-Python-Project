@@ -1,6 +1,9 @@
 import tkinter as tk
-import os
 from Caesar import caesar
+from Vigenere import vigenere
+from Symmetrical_keys import key
+from Rotor_encryption import rotor
+
 
 class menu:
     def __init__(self):
@@ -84,11 +87,11 @@ this is a watered down version of the enigma machine used by the NAZIs""")
         if self.option == "c":
             caesar()
         elif self.option == "v":
-            os.system("python Vigenere.py")
+            vigenere()
         elif self.option == "k":
-            os.system("python Symmetrical_keys.py")
+            key()
         elif self.option == "r":
-            os.system("python Rotor_encryption.py")
+            rotor()
         else:
             print("Not option selected")
 
