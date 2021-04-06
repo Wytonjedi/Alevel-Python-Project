@@ -4,6 +4,9 @@ from Caesar import caesar
 from Vigenere import vigenere
 from Symmetrical_keys import key
 from Rotor_encryption import rotor
+import ctypes
+
+ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
 
 class menu:
@@ -28,8 +31,9 @@ class menu:
 
         # filling wrapper3
         tk.Button(self.wrapper3, text="Exit", command=self.root.destroy, width=15, height=1, bd=4, fg="red"
-                  ).pack(side=tk.LEFT)
-        tk.Button(self.wrapper3, text="Enter", command=self.enter, width=15, height=1, bd=4).pack(side=tk.RIGHT)
+                  ).pack(side=LEFT)
+        tk.Button(self.wrapper3, text="Enter", command=self.enter, width=15, height=1, bd=4).pack(side=RIGHT)
+        tk.Button(self.wrapper3, text="Help", command=self.help, width=15, height=1, bd=4).pack(side=RIGHT)
 
         # putting wrappers onto window
         self.wrapper1.grid(row=0, column=0, sticky=N + S)
@@ -41,8 +45,8 @@ class menu:
 
     def choose_caesar(self):
         self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END,
+        self.description.delete("1.0", END)
+        self.description.insert(END,
                                 """Caesar:
 
 this is one of the first cyphers ever created""")
@@ -51,8 +55,8 @@ this is one of the first cyphers ever created""")
 
     def choose_vigenere(self):
         self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END,
+        self.description.delete("1.0", END)
+        self.description.insert(END,
                                 """Vigenere:
 
 This was developed from the Caesar cypher using a key instead of 
@@ -62,8 +66,8 @@ a stationary shift""")
 
     def choose_key(self):
         self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END,
+        self.description.delete("1.0", END)
+        self.description.insert(END,
                                 """Symmetrical Keys:
 
 this is the most commonly used encryption methods used to day """)
@@ -72,8 +76,8 @@ this is the most commonly used encryption methods used to day """)
 
     def choose_rotor(self):
         self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END,
+        self.description.delete("1.0", END)
+        self.description.insert(END,
                                 """Rotor:
 
 this is a watered down version of the enigma machine used by the NAZIs""")
@@ -81,9 +85,19 @@ this is a watered down version of the enigma machine used by the NAZIs""")
 
         self.option = "r"
 
-    def back(self):
+    def help(self):
         self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
+        self.description.delete("1.0", END)
+        self.description.insert(END,
+                                """HELP: 
+To use this Application selected a option from the left hand-side that you wish to use to encrypt.
+
+then select the Enter button, this will launch a separate window.
+
+If you wish to encrypt information enter the plain text into the top
+ "plain text" box and selected the wanted key and press encrypt 
+        
+                                """)
         self.description.configure(state="disabled")
 
         self.option = ""
@@ -98,7 +112,10 @@ this is a watered down version of the enigma machine used by the NAZIs""")
         elif self.option == "r":
             rotor()
         else:
-            print("Not option selected")
+            self.description.configure(state="normal")
+            self.description.delete("1.0", END)
+            self.description.insert("1.0", "ERROR: No Option Selected")
+            self.description.configure(state="disabled")
 
 
 menu()

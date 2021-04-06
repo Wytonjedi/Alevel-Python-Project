@@ -65,6 +65,10 @@ class master:
         text = self.text_menu.get("1.0", tk.END)
         return text.upper()
 
+    def get_encoded_text(self):
+        encrypted = self.encoded_menu.get("1.0", END)
+        return encrypted.upper()
+
     def email(self):
         self.menu = tk.Tk()
         self.frame1 = tk.Frame(self.menu)

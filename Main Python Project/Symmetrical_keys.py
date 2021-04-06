@@ -7,7 +7,6 @@ class key(master):
     def __init__(self):
         # declaration of self variables
         self.key = Fernet.generate_key()
-        self.fernet = Fernet(self.key)
         super().__init__()
 
     def menu_extra(self):
@@ -25,9 +24,13 @@ class key(master):
                bd=self.b_b_width).pack(side=RIGHT)
 
     def encrypt(self):
-        encoded = self.fernet.encrypt(self.get_text().encode("utf-8"))
-        print(encoded)
+        token = Fernet(self.key)
+        encoded = token.encrypt(self.get_text().encode("utf-8"))
+        self.encoded_menu.delete("1.0", END)
+        self.encoded_menu.insert(END, encoded)
 
     def decrypt(self):
-        text = self.fernet.decrypt(self.get_text().encode("utf-8"))
-        print(text)
+        token = Fernet(self.key)
+        text = token.decrypt(self.get_encoded_text().encode("utf-8"))
+        self.text_menu.delete("1.0", END)
+        self.text_menu.insert(END, text)
