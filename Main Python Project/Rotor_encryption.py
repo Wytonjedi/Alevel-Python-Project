@@ -5,6 +5,7 @@ from Master import master
 class rotor(master):
     def __init__(self):
         # creation of string variables
+        self.Wrapper2 = None
         self.alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
                       "S", "T", "U", "V", "W", "X", "Y", "Z"]
         self.bravo = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
@@ -18,13 +19,13 @@ class rotor(master):
         self.offset = []
         self.plugs = []
 
-    def menu_extra(self):
-        tk.Button(self.frame2, text="decode", command=self.decode, bd=self.b_b_width).pack()
-        self.a_offset = tk.OptionMenu(self.frame2, self.a_var, *self.alpha)
+    def menu_extra(self): # not working!
+        tk.Button(self.Wrapper2, text="decode", command=self.decode, bd=self.b_b_width).pack()
+        self.a_offset = tk.OptionMenu(self.Wrapper2, self.a_var, *self.alpha)
         self.a_offset.pack()
-        self.b_offset = tk.OptionMenu(self.frame2, self.b_var, *self.bravo)
+        self.b_offset = tk.OptionMenu(self.Wrapper2, self.b_var, *self.bravo)
         self.b_offset.pack()
-        tk.Button(self.frame2, text="encode", command=self.encode, bd=self.b_b_width).pack()
+        tk.Button(self.Wrapper2, text="encode", command=self.encode, bd=self.b_b_width).pack()
 
     def get_offset(self):
         self.offset[0] = self.a_var.get()

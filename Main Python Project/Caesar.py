@@ -1,4 +1,4 @@
-import tkinter as tk
+from tkinter import *
 import random
 from Master import master
 
@@ -12,17 +12,20 @@ class caesar(master):
         super().__init__()
 
     def menu_extra(self):
+        # setting window title
         self.menu.title("Caesar")
-        # filling of frame 2
-        tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=tk.LEFT)
-        self.key = tk.StringVar()
+
+        # filling of Wrapper2
+
+        Button(self.wrapper2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(side=LEFT)
+        self.key = StringVar()
         self.key.set(self.numbers[random.randint(0, len(self.numbers))])
-        self.shift_drop = tk.OptionMenu(self.frame2, self.key, *self.numbers)
-        self.shift_drop.configure(width=10)
-        self.shift_drop.pack(side=tk.LEFT)
-        tk.Button(self.frame2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=tk.RIGHT)
+        self.shift_drop = OptionMenu(self.wrapper2, self.key, *self.numbers)
+        self.shift_drop.configure(width=10, bd=self.b_b_width)
+        self.shift_drop.pack(side=LEFT)
+        Button(self.wrapper2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(side=RIGHT)
 
     def get_shift(self, i):
         shift = self.key.get()
@@ -49,11 +52,11 @@ class caesar(master):
                     run = True
             if not run:
                 encoded = encoded + text[i]
-        self.encoded_menu.delete("1.0", tk.END)
-        self.encoded_menu.insert(tk.END, encoded)
+        self.encoded_menu.delete("1.0", END)
+        self.encoded_menu.insert(END, encoded)
 
     def decrypt(self):
-        encoded = self.encoded_menu.get("1.0", tk.END)
+        encoded = self.encoded_menu.get("1.0", END)
         for i in range(1, len(self.numbers)):
             text = ""
             for j in range(len(encoded)):

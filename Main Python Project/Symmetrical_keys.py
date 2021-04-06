@@ -1,4 +1,4 @@
-import tkinter as tk
+from tkinter import *
 from cryptography.fernet import Fernet
 from Master import master
 
@@ -11,16 +11,18 @@ class key(master):
         super().__init__()
 
     def menu_extra(self):
+        # setting of menu title
         self.menu.title("Keys")
-        # filling of frame 2
-        tk.Button(self.frame2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=tk.LEFT)
-        tk.Label(self.frame2, text="Key:").pack(side=tk.LEFT)
-        self.key_box = tk.Entry(self.frame2, width=50)
-        self.key_box.pack(side=tk.LEFT)
-        self.key_box.insert(tk.END, self.key)
-        tk.Button(self.frame2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=tk.RIGHT)
+
+        # filling of wrapper2
+        Button(self.wrapper2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(side=LEFT)
+        Label(self.wrapper2, text="Key:").pack(side=LEFT)
+        self.key_box = Entry(self.wrapper2, width=50)
+        self.key_box.pack(side=LEFT)
+        self.key_box.insert(END, self.key)
+        Button(self.wrapper2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(side=RIGHT)
 
     def encrypt(self):
         encoded = self.fernet.encrypt(self.get_text().encode("utf-8"))

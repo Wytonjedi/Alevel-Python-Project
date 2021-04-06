@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import *
 import smtplib
 import ssl
 import os
@@ -22,40 +23,42 @@ class master:
         self.master_password = os.environ.get("EMAIL_TOKEN")
 
         # creation of window
-        self.menu = tk.Toplevel()
+        self.menu = Toplevel()
 
         # creation of frames
-        self.frame1 = tk.Frame(self.menu)
-        self.frame2 = tk.Frame(self.menu)
-        self.frame3 = tk.Frame(self.menu)
-        self.frame4 = tk.Frame(self.menu)
+        self.wrapper1 = LabelFrame(self.menu, text="Plain Text")
+        self.wrapper2 = LabelFrame(self.menu, text="Encoding Method")
+        self.wrapper3 = LabelFrame(self.menu, text="Encoded Text")
+        self.wrapper4 = LabelFrame(self.menu, text="Options")
 
-        # filling of frame 1
-        tk.Label(self.frame1, text="Plain Text:").pack()
-        self.text_menu = tk.Text(self.frame1, width=self.t_width, height=self.t_height)
+        # filling of wrapper1
+        self.text_menu = Text(self.wrapper1, width=self.t_width, height=self.t_height)
         self.text_menu.pack()
 
+        # filling of wrapper2 from subclass
         self.menu_extra()
 
-        # filling of frame 3
-        tk.Label(self.frame3, text="Encoded Text:").pack(side=tk.TOP)
-        self.encoded_menu = tk.Text(self.frame3, width=self.t_width, height=self.t_height)
+        # filling of wrapper3
+        self.encoded_menu = Text(self.wrapper3, width=self.t_width, height=self.t_height)
         self.encoded_menu.pack()
 
         # filling of frame 4
-        tk.Button(self.frame4, text="Back", command=self.menu.destroy, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(
-            side=tk.LEFT)
-        tk.Button(self.frame4, text="Email to friends", command=self.email, width=self.b_width,
-                  height=self.b_height, bd=self.b_b_width).pack(side=tk.LEFT)
-        tk.Button(self.frame4, text="Save to file", command=self.save_to_file, width=self.b_width,
-                  height=self.b_height, bd=self.b_b_width).pack(side=tk.RIGHT)
+        Button(self.wrapper4, text="Back", command=self.menu.destroy, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(
+            side=LEFT)
+        Button(self.wrapper4, text="Help", width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(
+            side=LEFT)
+        Button(self.wrapper4, text="Email to friends", command=self.email, width=self.b_width,
+               height=self.b_height, bd=self.b_b_width).pack(side=RIGHT)
+        Button(self.wrapper4, text="Save to file", command=self.save_to_file, width=self.b_width,
+               height=self.b_height, bd=self.b_b_width).pack(side=RIGHT)
 
         # packing frames
-        self.frame1.pack(side=tk.TOP)
-        self.frame2.pack()
-        self.frame3.pack()
-        self.frame4.pack(side=tk.BOTTOM)
+        self.wrapper1.pack(side=TOP, fill="x")
+        self.wrapper2.pack()
+        self.wrapper3.pack(fill="x")
+        self.wrapper4.pack(side=BOTTOM, fill="x")
         self.menu.mainloop()
 
     def get_text(self):

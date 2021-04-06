@@ -5,6 +5,7 @@ from Vigenere import vigenere
 from Symmetrical_keys import key
 from Rotor_encryption import rotor
 
+
 class menu:
     def __init__(self):
         self.root = tk.Tk()
@@ -31,9 +32,9 @@ class menu:
         tk.Button(self.wrapper3, text="Enter", command=self.enter, width=15, height=1, bd=4).pack(side=tk.RIGHT)
 
         # putting wrappers onto window
-        self.wrapper1.grid(row=0, column=0, sticky=N+S)
+        self.wrapper1.grid(row=0, column=0, sticky=N + S)
         self.wrapper2.grid(row=0, column=1)
-        self.wrapper3.grid(row=1, columnspan=2, sticky=E+W)
+        self.wrapper3.grid(row=1, columnspan=2, sticky=E + W)
 
         self.root.title("Main Menu")
         self.root.mainloop()
@@ -42,7 +43,7 @@ class menu:
         self.description.configure(state="normal")
         self.description.delete("1.0", tk.END)
         self.description.insert(tk.END,
-"""Caesar:
+                                """Caesar:
 
 this is one of the first cyphers ever created""")
         self.description.configure(state="disabled")
@@ -52,7 +53,7 @@ this is one of the first cyphers ever created""")
         self.description.configure(state="normal")
         self.description.delete("1.0", tk.END)
         self.description.insert(tk.END,
-"""Vigenere:
+                                """Vigenere:
 
 This was developed from the Caesar cypher using a key instead of 
 a stationary shift""")
@@ -63,7 +64,7 @@ a stationary shift""")
         self.description.configure(state="normal")
         self.description.delete("1.0", tk.END)
         self.description.insert(tk.END,
-"""Symmetrical Keys:
+                                """Symmetrical Keys:
 
 this is the most commonly used encryption methods used to day """)
         self.description.configure(state="disabled")
@@ -73,7 +74,7 @@ this is the most commonly used encryption methods used to day """)
         self.description.configure(state="normal")
         self.description.delete("1.0", tk.END)
         self.description.insert(tk.END,
-"""Rotor:
+                                """Rotor:
 
 this is a watered down version of the enigma machine used by the NAZIs""")
         self.description.configure(state="disabled")
