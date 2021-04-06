@@ -6,6 +6,7 @@ from Symmetrical_keys import key
 from Rotor_encryption import rotor
 import ctypes
 
+# closes CMD when compiled as a EXE file
 ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
 
