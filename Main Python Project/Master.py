@@ -78,8 +78,8 @@ class master:
 
         # filling frame 1
         self.message = tk.Text(self.frame1, width=50, height=15)
-        self.message.insert(tk.END, """
-Method: {} 
+        self.message.insert(tk.END,
+                            """Method: {} 
 Encoded Text: {}
 key: {}
 
@@ -92,12 +92,11 @@ Look at this!
         self.receiver = Entry(self.frame2)
         self.receiver.pack()
 
-
         # filling frame 3
         Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=LEFT)
+               bd=self.b_b_width).pack(side=LEFT)
         Button(self.frame3, text="send", command=self.send, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=RIGHT)
+               bd=self.b_b_width).pack(side=RIGHT)
 
         # packing frames
         self.frame1.pack(side=TOP, fill="x")
@@ -120,18 +119,17 @@ Look at this!
 
         # filling frame 1
         self.message = tk.Text(self.frame1, width=50, height=15)
-        self.message.insert(tk.END, """
-        Method: {} 
-        Encoded Text: {}
-        key: {}
-
-        """.format(self.type, self.encoded_menu.get("1.0", END), self.key.get()))
+        self.message.insert(tk.END,
+                            """Method: {} 
+Encoded Text: {}
+key: {}
+""".format(self.type, self.encoded_menu.get("1.0", END), self.key.get()))
         self.message.pack()
 
         # filling frame 2
         Label(self.frame2, text="Enter File Name:").pack()
-        self.receiver = Entry(self.frame2)
-        self.receiver.pack()
+        self.file = Entry(self.frame2)
+        self.file.pack()
 
         # filling frame 3
         Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height,
@@ -149,6 +147,7 @@ Look at this!
         f = open(self.file.get(), "w")
         f.write(self.message.get("1.0", tk.END))
         f.close()
+        self.menu.destroy()
 
     def help(self):
         pass
