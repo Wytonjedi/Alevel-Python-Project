@@ -46,7 +46,7 @@ class master:
         Button(self.wrapper4, text="Back", command=self.menu.destroy, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(
             side=LEFT)
-        Button(self.wrapper4, text="Help", width=self.b_width, height=self.b_height,
+        Button(self.wrapper4, text="Help", command=self.help, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(
             side=LEFT)
         Button(self.wrapper4, text="Email to friends", command=self.email, width=self.b_width,
@@ -145,3 +145,6 @@ key: {}
     def save(self):
         f = open(self.file.get(), "w")
         f.write(self.message.get("1.0", tk.END))
+
+    def help(self):
+        pass
