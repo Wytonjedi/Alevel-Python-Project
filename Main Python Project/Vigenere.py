@@ -22,7 +22,7 @@ class vigenere(caesar):
 
     def help(self):
         self.text_menu.insert(END,
-"""Help:
+                              """Help:
     this is the help text!""")
 
     def get_shift(self, i):

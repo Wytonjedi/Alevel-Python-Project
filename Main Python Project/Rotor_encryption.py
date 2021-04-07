@@ -19,7 +19,7 @@ class rotor(master):
         self.offset = []
         self.plugs = []
 
-    def menu_extra(self): # not working!
+    def menu_extra(self):  # not working!
         tk.Button(self.Wrapper2, text="decode", command=self.decode, bd=self.b_b_width).pack()
         self.a_offset = tk.OptionMenu(self.Wrapper2, self.a_var, *self.alpha)
         self.a_offset.pack()
@@ -29,7 +29,7 @@ class rotor(master):
 
     def help(self):  # not working
         self.text_menu.insert(END,
-"""Help:
+                              """Help:
     this is the help text!""")
 
     def get_offset(self):

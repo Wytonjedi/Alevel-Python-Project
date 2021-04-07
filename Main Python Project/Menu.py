@@ -50,7 +50,12 @@ class menu:
         self.description.insert(END,
                                 """Caesar:
 
-this is one of the first cyphers ever created""")
+this cypher was created in about 100 BC by Julius Caesar so he could 
+communicate orders to his troops without the enemy knowing.
+
+While other encryption were used previous this is the only one that has
+survived through to this day, leading to it being very commonly 
+used to teach the basics of encryption""")
         self.description.configure(state="disabled")
         self.option = "c"
 
@@ -71,7 +76,8 @@ a stationary shift""")
         self.description.insert(END,
                                 """Symmetrical Keys:
 
-this is the most commonly used encryption methods used to day """)
+In the modern internet key encryption is the most used way of encrypting 
+messages as they are very difficult to break without knowing the key used""")
         self.description.configure(state="disabled")
         self.option = "k"
 

@@ -49,10 +49,11 @@ class master:
         Button(self.wrapper4, text="Help", command=self.help, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(
             side=LEFT)
-        Button(self.wrapper4, text="Email to friends", command=self.email, width=self.b_width,
+        Button(self.wrapper4, text="Share by Email", command=self.email, width=self.b_width,
                height=self.b_height, bd=self.b_b_width).pack(side=RIGHT)
         Button(self.wrapper4, text="Save to file", command=self.save_to_file, width=self.b_width,
                height=self.b_height, bd=self.b_b_width).pack(side=RIGHT)
+        Label(self.wrapper4, text="Share:").pack(side=RIGHT)
 
         # packing frames
         self.wrapper1.pack(side=TOP, fill="x")
@@ -71,36 +72,37 @@ class master:
 
     def email(self):
         self.menu = tk.Tk()
-        self.frame1 = tk.Frame(self.menu)
-        self.frame2 = tk.Frame(self.menu)
-        self.frame3 = tk.Frame(self.menu)
+        self.frame1 = tk.LabelFrame(self.menu, text="Email Text")
+        self.frame2 = tk.LabelFrame(self.menu, text="Recipient Email")
+        self.frame3 = tk.LabelFrame(self.menu, text="Options")
 
         # filling frame 1
-        tk.Label(self.frame1, text="Enter Email:").pack(side=tk.LEFT)
-        self.receiver = tk.Entry(self.frame1)
-        self.receiver.pack(side=tk.RIGHT)
-
-        # filling frame 2
-        self.message = tk.Text(self.frame2)
+        self.message = tk.Text(self.frame1, width=50, height=15)
         self.message.insert(tk.END, """
 Method: {} 
 Encoded Text: {}
 key: {}
 
 Look at this!
-""".format(self.type, self.encoded_menu.get("1.0", tk.END), self.key.get()))
+""".format(self.type, self.encoded_menu.get("1.0", END), self.key.get()))
         self.message.pack()
 
+        # filling frame 2
+        Label(self.frame2, text="Enter Recipient Email:").pack()
+        self.receiver = Entry(self.frame2)
+        self.receiver.pack()
+
+
         # filling frame 3
-        tk.Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=tk.LEFT)
-        tk.Button(self.frame3, text="send", command=self.send, width=self.b_width, height=self.b_height,
-                  bd=self.b_b_width).pack(side=tk.RIGHT)
+        Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(side=LEFT)
+        Button(self.frame3, text="send", command=self.send, width=self.b_width, height=self.b_height,
+                  bd=self.b_b_width).pack(side=RIGHT)
 
         # packing frames
-        self.frame1.pack(side=tk.TOP)
-        self.frame2.pack()
-        self.frame3.pack(side=tk.BOTTOM)
+        self.frame1.pack(side=TOP, fill="x")
+        self.frame2.pack(fill="x")
+        self.frame3.pack(side=BOTTOM, fill="x")
         self.menu.mainloop()
 
     def send(self):
@@ -112,39 +114,41 @@ Look at this!
 
     def save_to_file(self):
         self.menu = tk.Tk()
-        self.frame1 = tk.Frame(self.menu)
-        self.frame2 = tk.Frame(self.menu)
-        self.frame3 = tk.Frame(self.menu)
+        self.frame1 = tk.LabelFrame(self.menu, text="File Text")
+        self.frame2 = tk.LabelFrame(self.menu, text="File Name")
+        self.frame3 = tk.LabelFrame(self.menu, text="Options")
 
         # filling frame 1
-        tk.Label(self.frame1, text="Enter file name:").pack(side=tk.LEFT)
-        self.file = tk.Entry(self.frame1)
-        self.file.pack(side=tk.RIGHT)
-
-        # filling frame 2
-        self.message = tk.Text(self.frame2)
+        self.message = tk.Text(self.frame1, width=50, height=15)
         self.message.insert(tk.END, """
-Method: {} 
-Encoded Text: {}
-key: {}
-""".format(self.type, self.encoded_menu.get("1.0", tk.END), self.key.get()))
+        Method: {} 
+        Encoded Text: {}
+        key: {}
+
+        """.format(self.type, self.encoded_menu.get("1.0", END), self.key.get()))
         self.message.pack()
 
+        # filling frame 2
+        Label(self.frame2, text="Enter File Name:").pack()
+        self.receiver = Entry(self.frame2)
+        self.receiver.pack()
+
         # filling frame 3
-        tk.Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height).pack(
-            side=tk.LEFT)
-        tk.Button(self.frame3, text="commit", command=self.save, width=self.b_width, height=self.b_height).pack(
-            side=tk.RIGHT)
+        Button(self.frame3, text="cancel", command=self.menu.destroy, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(side=LEFT)
+        Button(self.frame3, text="Save To File", command=self.save, width=self.b_width, height=self.b_height,
+               bd=self.b_b_width).pack(side=RIGHT)
 
         # packing frames
-        self.frame1.pack(side=tk.TOP)
-        self.frame2.pack()
-        self.frame3.pack(side=tk.BOTTOM)
+        self.frame1.pack(side=TOP, fill="x")
+        self.frame2.pack(fill="x")
+        self.frame3.pack(side=BOTTOM, fill="x")
         self.menu.mainloop()
 
     def save(self):
         f = open(self.file.get(), "w")
         f.write(self.message.get("1.0", tk.END))
+        f.close()
 
     def help(self):
         pass

@@ -25,7 +25,7 @@ class key(master):
 
     def help(self):
         self.text_menu.insert(END,
-"""Help:
+                              """Help:
     this is the help text!""")
 
     def encrypt(self):

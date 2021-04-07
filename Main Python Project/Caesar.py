@@ -19,6 +19,7 @@ class caesar(master):
 
         Button(self.wrapper2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=LEFT)
+        Label(self.wrapper2, text="Shift:").pack(side=LEFT)
         self.key = StringVar()
         self.key.set(self.numbers[random.randint(0, len(self.numbers))])
         self.shift_drop = OptionMenu(self.wrapper2, self.key, *self.numbers)
@@ -29,9 +30,8 @@ class caesar(master):
 
     def help(self):
         self.text_menu.insert(END,
-"""Help:
+                              """Help:
     this is the help text!""")
-
 
     def get_shift(self, i):
         shift = self.key.get()
