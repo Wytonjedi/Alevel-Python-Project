@@ -20,6 +20,11 @@ class vigenere(caesar):
         Button(self.wrapper2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=RIGHT)
 
+    def help(self):
+        self.text_menu.insert(END,
+"""Help:
+    this is the help text!""")
+
     def get_shift(self, i):
         key = self.key.get().upper()
         if i > len(key) - 1:

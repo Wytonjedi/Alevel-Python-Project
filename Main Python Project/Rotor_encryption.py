@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import *
 from Master import master
 
 
@@ -25,6 +26,11 @@ class rotor(master):
         self.b_offset = tk.OptionMenu(self.Wrapper2, self.b_var, *self.bravo)
         self.b_offset.pack()
         tk.Button(self.Wrapper2, text="encode", command=self.encode, bd=self.b_b_width).pack()
+
+    def help(self):  # not working
+        self.text_menu.insert(END,
+"""Help:
+    this is the help text!""")
 
     def get_offset(self):
         self.offset[0] = self.a_var.get()

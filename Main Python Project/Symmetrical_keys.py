@@ -23,6 +23,11 @@ class key(master):
         Button(self.wrapper2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=RIGHT)
 
+    def help(self):
+        self.text_menu.insert(END,
+"""Help:
+    this is the help text!""")
+
     def encrypt(self):
         token = Fernet(self.key)
         encoded = token.encrypt(self.get_text().encode("utf-8"))

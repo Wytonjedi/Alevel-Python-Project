@@ -27,15 +27,11 @@ class caesar(master):
         Button(self.wrapper2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=RIGHT)
 
-    def help(self): # not working
-        help_menu = Tk()
-        help_menu.title("Help")
-        help_box = Text(help_menu, state="disabled", width=75, height=15).pack()
-        help_box.configure(state="normal")
-        help_box.insert(END, """
-Help:
+    def help(self):
+        self.text_menu.insert(END,
+"""Help:
     this is the help text!""")
-        Button(help_box, text="Confirm", command=help_menu.destroy, width=self.b_width, height=self.b_height).pack()
+
 
     def get_shift(self, i):
         shift = self.key.get()
