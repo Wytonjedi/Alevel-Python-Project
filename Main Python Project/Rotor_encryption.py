@@ -20,7 +20,8 @@ class rotor(master):
         self.offset = []
         self.plugs = []
 
-    def menu_extra(self):  # not working!
+    def menu_extra(self):
+        self.menu.title("RotorEncryption")
         tk.Button(self.wrapper2, text="decode", command=self.decode, width=self.b_width, height=self.b_height,
                   bd=self.b_b_width).pack(side=LEFT)
         Label(self.wrapper2, text="Rotor 1:").pack(side=LEFT)
@@ -34,7 +35,7 @@ class rotor(master):
         tk.Button(self.wrapper2, text="encode", command=self.encode, width=self.b_width, height=self.b_height,
                   bd=self.b_b_width).pack(side=LEFT)
 
-    def help(self):  # not working
+    def help(self):
         self.text_menu.insert(END,
                               """Help:
     this is the help text!""")
