@@ -65,8 +65,16 @@ used to teach the basics of encryption""")
         self.description.insert(END,
                                 """Vigenere:
 
-This was developed from the Caesar cypher using a key instead of 
-a stationary shift""")
+The Vigenere cypher was created in 1553 by Giovan Battista Bellaso. 
+However, then was misattributed to Blaise de Vigenère in the 19th century
+where it got is current name.
+
+This cypher uses a grid based of the caesar cypher, 
+on the y axis you have the letter of your key,
+on the x axis you have the phrase you want to encrypt.
+
+from this you follow both axis until you reach the point where they meet,
+the letter there is your encrypted letter.""")
         self.description.configure(state="disabled")
         self.option = "v"
 
@@ -99,12 +107,7 @@ this is a watered down version of the enigma machine used by the NAZIs""")
                                 """HELP: 
 To use this Application selected a option from the left hand-side that you wish to use to encrypt.
 
-then select the Enter button, this will launch a separate window.
-
-If you wish to encrypt information enter the plain text into the top
- "plain text" box and selected the wanted key and press encrypt 
-        
-                                """)
+then select the Enter button, this will launch a separate window.""")
         self.description.configure(state="disabled")
 
         self.option = ""
