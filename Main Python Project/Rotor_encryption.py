@@ -17,9 +17,6 @@ class rotor(master):
 
         super().__init__()
 
-        self.offset = []
-        self.plugs = []
-
     def menu_extra(self):
         self.menu.title("RotorEncryption")
         tk.Button(self.wrapper2, text="decode", command=self.decode, width=self.b_width, height=self.b_height,
@@ -41,11 +38,11 @@ class rotor(master):
     this is the help text!""")
 
     def get_offset(self):
-        self.offset[0] = self.a_var.get()
-        self.offset[1] = self.b_var.get()
+        return self.a_var.get(), self.b_var.get()
 
     def encode(self):
-        pass
+        offset_a, offset_b = self.get_offset()
+
 
     def decode(self):
         pass
