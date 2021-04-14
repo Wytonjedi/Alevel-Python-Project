@@ -3,7 +3,7 @@ from cryptography.fernet import Fernet
 from Master import master
 
 
-class key(master):
+class key_sym(master):
     def __init__(self):
         # declaration of self variables
         self.key = Fernet.generate_key()
@@ -28,14 +28,17 @@ class key(master):
                               """Help:
     this is the help text!""")
 
+    def get_token(self):
+        return Fernet(self.key)
+
     def encrypt(self):
-        token = Fernet(self.key)
+        token = self.get_token()
         encoded = token.encrypt(self.get_text().encode("utf-8"))
         self.encoded_menu.delete("1.0", END)
         self.encoded_menu.insert(END, encoded)
 
-    def decrypt(self):
-        token = Fernet(self.key)
+    def decrypt(self): # need to use same token as when encrypted? save token as well?
+        token = self.get_token()
         text = token.decrypt(self.get_encoded_text().encode("utf-8"))
         self.text_menu.delete("1.0", END)
         self.text_menu.insert(END, text)

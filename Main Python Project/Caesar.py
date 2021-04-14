@@ -33,7 +33,7 @@ class caesar(master):
                               """Help:
     this is the help text!""")
 
-    def get_shift(self, i):
+    def get_shift(self, count):
         shift = self.key.get()
         return int(shift)
 
@@ -62,9 +62,19 @@ class caesar(master):
         self.encoded_menu.insert(END, encoded)
 
     def decrypt(self):
-        encoded = self.encoded_menu.get("1.0", END)
-        for i in range(1, len(self.numbers)):
-            text = ""
-            for j in range(len(encoded)):
-                text = text + self.shift(encoded[j], i)
-            print(text)
+        encoded = self.encoded_menu.get("1.0", END).upper()
+        count = 0
+
+        text = ""
+        for i in range(len(encoded) - 1):
+            decrypt = False
+            for j in range(len(self.letters)):
+                if encoded[i] == self.letters[j]:
+                    text += self.shift(encoded[i], (len(self.letters) - self.get_shift(count)))
+                    count += 1
+                    decrypt = True
+            if not decrypt:
+                text += encoded[i]
+
+        self.text_menu.delete("1.0", END)
+        self.text_menu.insert(END, text)
