@@ -24,8 +24,8 @@ class menu:
         Button(self.wrapper1, text="Rotor encryption", command=self.choose_rotor, width=15, height=1, bd=4).pack()
 
         # filling wrapper2
-        self.description = tk.Text(self.wrapper2, state="disabled", width=75, height=15)
-        self.description.pack()
+        self.description = Text(self.wrapper2, state="disabled", width=75, height=15)
+        self.description.pack(expand=True)
 
         # filling wrapper3
         tk.Button(self.wrapper3, text="Exit", command=self.root.destroy, width=15, height=1, bd=4, fg="red"
@@ -34,9 +34,13 @@ class menu:
         tk.Button(self.wrapper3, text="Help", command=self.help, width=15, height=1, bd=4).pack(side=RIGHT)
 
         # putting wrappers onto window
-        self.wrapper1.grid(row=0, column=0, sticky=N + S)
-        self.wrapper2.grid(row=0, column=1)
-        self.wrapper3.grid(row=1, columnspan=2, sticky=E + W)
+        # self.wrapper1.grid(row=0, column=0, sticky=N + S)
+        # self.wrapper2.grid(row=0, column=1)
+        # self.wrapper3.grid(row=1, columnspan=2, sticky=E + W)
+
+        self.wrapper1.pack(fill= "y", side="left")
+        self.wrapper2.pack(fill="both", expand=True)
+        self.wrapper3.pack(fill="both", side="bottom")
 
         self.root.title("Main Menu")
         self.root.mainloop()

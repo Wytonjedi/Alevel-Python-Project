@@ -56,9 +56,9 @@ class master:
         Label(self.wrapper4, text="Share:").pack(side=RIGHT)
 
         # packing frames
-        self.wrapper1.pack(side=TOP, fill="x")
-        self.wrapper2.pack()
-        self.wrapper3.pack(fill="x")
+        self.wrapper1.pack(side=TOP, fill="both")
+        self.wrapper2.pack(fill="both")
+        self.wrapper3.pack(fill="both")
         self.wrapper4.pack(side=BOTTOM, fill="x")
         self.menu.mainloop()
 
