@@ -6,20 +6,22 @@ from Master import master
 class key_sym(master):
     def __init__(self):
         # declaration of self variables
-        self.key = Fernet.generate_key()
+        self.type = "Symmetrical Keys"
+        self.Sym_key = Fernet.generate_key()
+        self.token = Fernet(self.Sym_key)
         super().__init__()
 
     def menu_extra(self):
         # setting of menu title
-        self.menu.title("Keys")
+        self.menu.title("Symmetrical Keys")
 
         # filling of wrapper2
         Button(self.wrapper2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=LEFT)
         Label(self.wrapper2, text="Key:").pack(side=LEFT)
-        self.key_box = Entry(self.wrapper2, width=50)
-        self.key_box.pack(side=LEFT)
-        self.key_box.insert(END, self.key)
+        self.key = Entry(self.wrapper2, width=50)
+        self.key.pack(side=LEFT)
+        self.key.insert(END, self.Sym_key)
         Button(self.wrapper2, text="Encode", command=self.encrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=RIGHT)
 
@@ -28,17 +30,12 @@ class key_sym(master):
                               """Help:
     this is the help text!""")
 
-    def get_token(self):
-        return Fernet(self.key)
-
     def encrypt(self):
-        token = self.get_token()
-        encoded = token.encrypt(self.get_text().encode("utf-8"))
+        encoded = self.token.encrypt(self.get_text().encode("utf-8"))
         self.encoded_menu.delete("1.0", END)
         self.encoded_menu.insert(END, encoded)
 
-    def decrypt(self): # need to use same token as when encrypted? save token as well?
-        token = self.get_token()
-        text = token.decrypt(self.get_encoded_text().encode("utf-8"))
+    def decrypt(self):  # need to use same token as when encrypted? save token as well?
+        text = self.token.decrypt(self.get_encoded_text().encode("utf-8"))
         self.text_menu.delete("1.0", END)
         self.text_menu.insert(END, text)

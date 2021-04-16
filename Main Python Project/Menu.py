@@ -3,7 +3,7 @@ import tkinter as tk
 from Caesar import caesar
 from Vigenere import vigenere
 from Symmetrical_keys import key_sym
-
+from Asymetrical_keys import key_asym
 from Rotor_encryption import rotor
 
 
@@ -21,7 +21,6 @@ class menu:
         Button(self.wrapper1, text="caesar", command=self.choose_caesar, width=15, height=1, bd=4).pack()
         Button(self.wrapper1, text="vigenere", command=self.choose_vigenere, width=15, height=1, bd=4).pack()
         Button(self.wrapper1, text="symmetrical keys", command=self.choose_key_sym, width=15, height=1, bd=4).pack()
-        Button(self.wrapper1, text="Asymmetrical keys", command=self.choose_key_asym, width=15, height=1, bd=4).pack()
         Button(self.wrapper1, text="Rotor encryption", command=self.choose_rotor, width=15, height=1, bd=4).pack()
 
         # filling wrapper2
@@ -68,7 +67,7 @@ However, then was misattributed to Blaise de Vigenère in the 19th century
 where it got is current name.
 
 This cypher uses a grid based of the caesar cypher, 
-on the y axis you have the letter of your key,
+on the y axis you have the letter of your Sym_key,
 on the x axis you have the phrase you want to encrypt.
 
 from this you follow both axis until you reach the point where they meet,
@@ -82,20 +81,10 @@ the letter there is your encrypted letter.""")
         self.description.insert(END,
                                 """Symmetrical Keys:
 
-In the modern internet key encryption is the most used way of encrypting 
-messages as they are very difficult to break without knowing the key used""")
+In the modern internet Sym_key encryption is the most used way of encrypting 
+messages as they are very difficult to break without knowing the Sym_key used""")
         self.description.configure(state="disabled")
         self.option = "ks"
-
-    def choose_key_asym(self):
-        self.description.configure(state="normal")
-        self.description.delete("1.0", END)
-        self.description.insert(END,
-                                """Asymmetrical Keys:
-                                
-To be written""")
-        self.description.configure(state="disabled")
-        self.option = "ka"
 
     def choose_rotor(self):
         self.description.configure(state="normal")
@@ -127,8 +116,6 @@ then select the Enter button, this will launch a separate window.""")
             vigenere()
         elif self.option == "ks":
             key_sym()
-        elif self.option == "ka":
-            pass
         elif self.option == "r":
             rotor()
         else:
