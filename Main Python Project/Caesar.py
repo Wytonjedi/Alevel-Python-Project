@@ -16,7 +16,6 @@ class caesar(master):
         self.menu.title("Caesar")
 
         # filling of Wrapper2
-
         Button(self.wrapper2, text="Decode", command=self.decrypt, width=self.b_width, height=self.b_height,
                bd=self.b_b_width).pack(side=LEFT)
         Label(self.wrapper2, text="Shift:").pack(side=LEFT)

@@ -48,6 +48,7 @@ class menu:
 please use the Exit button in the lower corner as to ensure 
 nothing if broken!.""")
         self.description.configure(state="disabled")
+        self.option = ""
 
     def choose_caesar(self):
         self.description.configure(state="normal")
