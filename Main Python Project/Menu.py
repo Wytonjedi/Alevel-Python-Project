@@ -15,6 +15,7 @@ class menu:
         self.wrapper1 = LabelFrame(self.root, text="Encode options")
         self.wrapper2 = LabelFrame(self.root, text="Description")
         self.wrapper3 = LabelFrame(self.root, text="Options")
+        self.root.protocol('WM_DELETE_WINDOW', self.menudestroy)
 
         # filling wrapper1
         Button(self.wrapper1, text="caesar", command=self.choose_caesar, width=15, height=1, bd=4).pack()
@@ -38,6 +39,9 @@ class menu:
 
         self.root.title("Main Menu")
         self.root.mainloop()
+
+    def menudestroy(self):
+        pass
 
     def choose_caesar(self):
         self.description.configure(state="normal")

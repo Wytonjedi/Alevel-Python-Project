@@ -30,6 +30,7 @@ class master:
         self.wrapper2 = LabelFrame(self.menu, text="Encoding Method")
         self.wrapper3 = LabelFrame(self.menu, text="Encoded Text")
         self.wrapper4 = LabelFrame(self.menu, text="Options")
+        self.menu.protocol('WM_DELETE_WINDOW', self.menudestroy)
 
         # filling of wrapper1
         self.text_menu = Text(self.wrapper1, width=self.t_width, height=self.t_height)
@@ -61,6 +62,9 @@ class master:
         self.wrapper3.pack(fill="both")
         self.wrapper4.pack(side=BOTTOM, fill="x")
         self.menu.mainloop()
+
+    def menudestroy(self):
+        pass
 
     def get_text(self):
         text = self.text_menu.get("1.0", tk.END)
