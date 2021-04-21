@@ -30,7 +30,7 @@ class master:
         self.wrapper2 = LabelFrame(self.menu, text="Encoding Method")
         self.wrapper3 = LabelFrame(self.menu, text="Encoded Text")
         self.wrapper4 = LabelFrame(self.menu, text="Options")
-        self.menu.protocol('WM_DELETE_WINDOW', self.menudestroy)
+        self.menu.protocol('WM_DELETE_WINDOW', self.menu_destroy)
 
         # filling of wrapper1
         self.text_menu = Text(self.wrapper1, width=self.t_width, height=self.t_height)
@@ -63,8 +63,12 @@ class master:
         self.wrapper4.pack(side=BOTTOM, fill="x")
         self.menu.mainloop()
 
-    def menudestroy(self):
-        pass
+    def menu_destroy(self):
+        self.text_menu.delete("1.0", END)
+        self.text_menu.insert(END,
+                                """It Looks like you tried to Go back:
+please use the Back button in the lower right-hand corner 
+to close this window!""")
 
     def get_text(self):
         text = self.text_menu.get("1.0", tk.END)
