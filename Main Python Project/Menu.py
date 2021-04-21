@@ -3,7 +3,6 @@ import tkinter as tk
 from Caesar import caesar
 from Vigenere import vigenere
 from Symmetrical_keys import key_sym
-from Asymetrical_keys import key_asym
 from Rotor_encryption import rotor
 
 
@@ -32,11 +31,6 @@ class menu:
                   ).pack(side=LEFT)
         tk.Button(self.wrapper3, text="Enter", command=self.enter, width=15, height=1, bd=4).pack(side=RIGHT)
         tk.Button(self.wrapper3, text="Help", command=self.help, width=15, height=1, bd=4).pack(side=RIGHT)
-
-        # putting wrappers onto window
-        # self.wrapper1.grid(row=0, column=0, sticky=N + S)
-        # self.wrapper2.grid(row=0, column=1)
-        # self.wrapper3.grid(row=1, columnspan=2, sticky=E + W)
 
         self.wrapper1.pack(fill= "y", side="left")
         self.wrapper2.pack(fill="both", expand=True)
