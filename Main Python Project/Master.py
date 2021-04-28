@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 import smtplib
 import ssl
-import os
+import time
 
 
 class master:
@@ -20,7 +20,9 @@ class master:
         self.port = 587
         self.smtp_server = "smtp.gmail.com"
         self.master_email = "mypythonprojects101@gmail.com"
-        self.master_password = os.environ.get("EMAIL_TOKEN")
+        f = open("emailpasswd","r")
+        self.master_password = f.readline()
+        f.close()
 
         # creation of window
         self.menu = Toplevel()
@@ -117,7 +119,12 @@ Look at this!
         server = smtplib.SMTP(self.smtp_server, self.port)
         server.starttls(context=context)
         server.login(self.master_email, self.master_password)
-        server.sendmail(self.master_email, self.receiver.get(), self.message.get(tk.END))
+        try:
+            server.sendmail(self.master_email, self.receiver.get(), self.message.get("1.0"))
+        except:
+            Label(self.frame3, text="Error", bg="red").pack()
+        else:
+            Label(self.frame3, text="Sent", bg="green").pack()
 
     def save_to_file(self):
         self.menu = tk.Tk()

@@ -33,7 +33,7 @@ class menu:
         tk.Button(self.wrapper3, text="Enter", command=self.enter, width=15, height=1, bd=4).pack(side=RIGHT)
         tk.Button(self.wrapper3, text="Help", command=self.help, width=15, height=1, bd=4).pack(side=RIGHT)
 
-        self.wrapper1.pack(fill= "y", side="left")
+        self.wrapper1.pack(fill="y", side="left")
         self.wrapper2.pack(fill="both", expand=True)
         self.wrapper3.pack(fill="both", side="bottom")
 
