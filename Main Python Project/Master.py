@@ -120,7 +120,7 @@ Look at this!
         server.starttls(context=context)
         server.login(self.master_email, self.master_password)
         try:
-            server.sendmail(self.master_email, self.receiver.get(), self.message.get("1.0"))
+            server.sendmail(self.master_email, self.receiver.get(), ( "\n \n \n" + self.message.get("1.0", END)))
         except:
             Label(self.frame3, text="Error", bg="red").pack()
         else:

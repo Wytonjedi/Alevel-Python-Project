@@ -4,8 +4,10 @@ from Caesar import caesar
 
 class vigenere(caesar):
     def __init__(self):
-        self.type = "Vigenere"
         super().__init__()
+
+    def type(self):
+        self.type = "Vigenere"
 
     def menu_extra(self):
         # setting menu title
