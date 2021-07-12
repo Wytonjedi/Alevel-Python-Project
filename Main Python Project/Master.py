@@ -20,7 +20,7 @@ class master:
         self.port = 587
         self.smtp_server = "smtp.gmail.com"
         self.master_email = "mypythonprojects101@gmail.com"
-        f = open("emailpasswd","r")
+        f = open("emailpasswd[] ","r")
         self.master_password = f.readline()
         f.close()
 
@@ -166,3 +166,4 @@ key: {}
 
     def help(self):
         pass
+
