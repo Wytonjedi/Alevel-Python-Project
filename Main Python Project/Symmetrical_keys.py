@@ -5,6 +5,7 @@ from Master import master
 
 class key_sym(master):
     def __init__(self):
+        self.type = "Key_Sym"
         # declaration of self variables
         self.type = "Symmetrical Keys"
         self.Sym_key = Fernet.generate_key()

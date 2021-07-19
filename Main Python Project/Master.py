@@ -20,7 +20,7 @@ class master:
         self.port = 587
         self.smtp_server = "smtp.gmail.com"
         self.master_email = "mypythonprojects101@gmail.com"
-        f = open("emailpasswd[] ","r")
+        f = open("emailpasswd ", "r")
         self.master_password = f.readline()
         f.close()
 
@@ -56,7 +56,6 @@ class master:
                height=self.b_height, bd=self.b_b_width).pack(side=RIGHT)
         Button(self.wrapper4, text="Save to file", command=self.save_to_file, width=self.b_width,
                height=self.b_height, bd=self.b_b_width).pack(side=RIGHT)
-        Label(self.wrapper4, text="Share:").pack(side=RIGHT)
 
         # packing frames
         self.wrapper1.pack(side=TOP, fill="both")
@@ -68,7 +67,7 @@ class master:
     def menu_destroy(self):
         self.text_menu.delete("1.0", END)
         self.text_menu.insert(END,
-                                """It Looks like you tried to Go back:
+                              """It Looks like you tried to Go back:
 please use the Back button in the lower right-hand corner 
 to close this window!""")
 
@@ -120,7 +119,7 @@ Look at this!
         server.starttls(context=context)
         server.login(self.master_email, self.master_password)
         try:
-            server.sendmail(self.master_email, self.receiver.get(), ( "\n \n \n" + self.message.get("1.0", END)))
+            server.sendmail(self.master_email, self.receiver.get(), ("\n \n \n" + self.message.get("1.0", END)))
         except:
             Label(self.frame3, text="Error", bg="red").pack()
         else:
@@ -166,4 +165,3 @@ key: {}
 
     def help(self):
         pass
-

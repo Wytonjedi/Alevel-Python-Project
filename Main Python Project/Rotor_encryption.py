@@ -5,6 +5,7 @@ from Master import master
 
 class rotor(master):
     def __init__(self):
+        self.type = "Rotor"
         # creation of self variables
         self.rotor_a = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
                         "T", "U", "V", "W", "X", "Y", "Z"]

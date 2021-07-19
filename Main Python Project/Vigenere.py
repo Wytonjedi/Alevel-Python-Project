@@ -6,11 +6,9 @@ class vigenere(caesar):
     def __init__(self):
         super().__init__()
 
-    def type(self):
-        self.type = "Vigenere"
-
     def menu_extra(self):
         # setting menu title
+        self.type = "Vigenere"
         self.menu.title("Vigenere")
 
         # filling of wrapper2
