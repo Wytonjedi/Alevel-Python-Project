@@ -1,6 +1,25 @@
 {
-  "ceaser": "TestC",
-  "viginere": "TestV",
+  "button_vars": {
+    "width": 15,
+    "height": 1,
+    "border": 4
+  },
+  "text_vars": {
+    "width": 75,
+    "height": 15
+  },
+  "description": {
+  "caeser": "TestC",
+  "vigenere": "TestV",
   "sys_key": "TestK",
   "rotor": "TestR"
+},
+  "help_menu": {
+    "main_menu": "HelpMM",
+    "ceaser": "HelpC",
+    "viginere": "HelpV",
+    "sys_key": "HelpK",
+    "rotor": "HelpR"
+  }
+
   }
