@@ -100,6 +100,7 @@ messages as they are very difficult to break without knowing the Sym_key used"""
         self.description.delete("1.0", END)
         self.description.insert(END,
                                 """Rotor:
+                                
 
 this is a watered down version of the enigma machine used by the NAZIs""")
         self.description.configure(state="disabled")
