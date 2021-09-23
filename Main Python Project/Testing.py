@@ -5,7 +5,7 @@ import json
 class menu:
     root = tk.Tk()
     name = "Main Menu"
-    option = ""
+    select = ""
 
     @classmethod
     def DESTROY(cls):
@@ -62,33 +62,23 @@ class menu:
         self.wrapper3.pack(fill="both", side="bottom")
         self.root.mainloop()
 
-    def choose_caesar(self):
+    def description_update(self):
         self.description.configure(state="normal")
         self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END, self.description["caesar"])
+        self.description.insert(tk.END, self.description[self.select])
         self.description.configure(state="disabled")
-        self.option = "c"
+
+    def choose_caesar(self):
+        self.select = "ceaser"
 
     def choose_vigenere(self):
-        self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END, self.description["vigenere"])
-        self.description.configure(state="disabled")
-        self.option = "c"
+        self.select = "vigenere"
 
     def choose_sym_key(self):
-        self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END, self.description["sys_key"])
-        self.description.configure(state="disabled")
-        self.option = "c"
+        self.select = "sys_key"
 
     def choose_rotor(self):
-        self.description.configure(state="normal")
-        self.description.delete("1.0", tk.END)
-        self.description.insert(tk.END, self.description["rotor"])
-        self.description.configure(state="disabled")
-        self.option = "c"
+        self.select = "rotor"
 
     def enter(self):
         pass
